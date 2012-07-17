@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.ringojs</groupId>
+	<artifactId>ringo-maven</artifactId>
+	<name>ringo-maven</name>
+	<packaging>war</packaging>
+	<version>0.1</version>
+	<properties>
+		<java-version>1.6</java-version>
+		<org.springframework-version>3.0.5.RELEASE</org.springframework-version>
+		<freemarker.version>2.3.16</freemarker.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.ringojs</groupId>
+			<artifactId>ringojs</artifactId>
+			<version>0.8.0</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>${project.name}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<compilerArguments>
+						<Werror />
+					</compilerArguments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<executions>
+					<execution>
+						<id>backstage</id>
+						<phase>package</phase>
+						<configuration>
+							<webappDirectory>${project.build.directory}/ringo-maven</webappDirectory>
+							<warSourceDirectory>src/main/webapp</warSourceDirectory>
+							<warName>backstage</warName>
+						</configuration>
+						<goals>
+							<goal>exploded</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.4.3</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>maven2-central</id>
+			<name>Maven2 Central</name>
+			<url>http://repo.maven.apache.org/maven2/</url>
+		</repository>
+	</repositories>
+</project>
