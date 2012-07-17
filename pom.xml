@@ -41,12 +41,12 @@
 				<version>2.1.1</version>
 				<executions>
 					<execution>
-						<id>backstage</id>
+						<id>ringo-maven</id>
 						<phase>package</phase>
 						<configuration>
 							<webappDirectory>${project.build.directory}/ringo-maven</webappDirectory>
 							<warSourceDirectory>src/main/webapp</warSourceDirectory>
-							<warName>backstage</warName>
+							<warName>ringo-maven</warName>
 						</configuration>
 						<goals>
 							<goal>exploded</goal>
